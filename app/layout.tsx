@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
+import { Footer } from "@/components/Footer";
 import { StoreProvider } from "@/lib/store";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -19,7 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StoreProvider>
           <div className="app">
             <Sidebar />
-            <main className="contenido">{children}</main>
+            <div className="columna">
+              <main className="contenido">{children}</main>
+              <Footer />
+            </div>
           </div>
         </StoreProvider>
       </body>
